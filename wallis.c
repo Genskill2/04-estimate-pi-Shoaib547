@@ -15,7 +15,8 @@ float wallis_pi(int iterations,float m,float p){
 }
 
 int main(void) {
- int iterations = get_int("enter number of iterations:");
+ int iterations;
+  scanf("%d",&iterations);
   float p = 1;
   float m = 2;
   float pi;
