@@ -2,31 +2,34 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#define SEED time(NULL)
+#include <time.h>
 
 float mc_pi(int);
-float frandom() {
+/*float frandom() {
   long int q = random();
   float ret = (float)q/(float)RAND_MAX;
   return ret;
-}
+}*/
 float mc_pi(int n){
   float circle = 0;
   float square = 0;
   float x,y;
   for(int i = 1; i<=n; i++){
-    x = frandom();
-    y = frandom();
+    x = (float)rand()/RAND_MAX;
+    y = (float)rand()/RAND_MAX;
     if(((x*x)+(y*y))<=1){
       circle++;}
    
       square++;
     
   }
-    float pi= 4*(float)circle/square;
+    float pi= 4*circle/square;
     return pi;
   }
 
 int main(void) {
+  srand(SEED);
   float pi0;
   float pi1;
   pi0 = mc_pi(25000);
