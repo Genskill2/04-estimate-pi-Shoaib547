@@ -3,25 +3,28 @@
 #include <stdio.h>
 #include <math.h>
 
-float wallis_pi(int,float,float);
+
+float wallis_pi(int n){
+ float pi=1;
+ float a,b;
+  for (int i=1;i<n+1;i++){
+    a = 4*i*i;
+    b = a/(a-1);
+    pi = pi*b;  
+  }
+  float k = 2*pi;
+  
+   return k;
+  
+}
 
 int main(void) {
- int iterations;
-  scanf("%d",&iterations);
-  float p = 1;
-  float m = 2;
-  float pi;
-  pi = wallis_pi(iterations,m,p);
-  printf("%f",pi);
-  return 0;
-}
-float wallis_pi(int iterations,float m,float p){
-  for (int i=0;i<iterations;i++){
-    float t1 = m/(m-1);
-    float t2 = m/(m+1);
-    float p = p*t1*t2;
-    m += 2;
-  }
-  return 2*p;
+ int n;
+ printf("enter iterations:");
+  scanf("%d",&n);
+  float p;
+  p = wallis_pi(n);
+  printf("%f",p);
+  
 }
 
