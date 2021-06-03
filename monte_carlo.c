@@ -10,8 +10,8 @@ float frandom() {
   return ret;
 }
 float mc_pi(int n){
-  int circle = 0;
-  int square = 0;
+  float circle = 0;
+  float square = 0;
   float x,y;
   for(int i = 1; i<=n; i++){
     x = frandom();
@@ -23,7 +23,7 @@ float mc_pi(int n){
     }
   }
     square = square + circle;
-    float pi= 4*circle/square;
+    float pi= 4*(float)circle/square;
     return pi;
   }
 
@@ -34,7 +34,7 @@ int main(void) {
   pi1 = mc_pi(25000);
   printf("%f %f\n", pi0, pi1);
   
-  /*if (pi0 == pi1) {
+  if (pi0 == pi1) {
       printf("Two separate estimates of pi are exactly the same. This is unlikely.\n");
       abort();
     }
@@ -51,7 +51,7 @@ int main(void) {
       printf("Estimate with even %d iterations is %f which is not accurate enough.\n", i, pi0);
       abort();
     }
-  }*/
+  }
 }
 
 
