@@ -21,6 +21,7 @@ float mc_pi(int n){
     else{
       square++;
     }
+  }
     square = square + circle;
     float pi= 4*circle/square;
     return pi;
