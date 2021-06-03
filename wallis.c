@@ -19,7 +19,7 @@ float wallis_pi(int iterations,float m,float p){
   for (int i=0;i<iterations;i++){
     float t1 = m/(m-1);
     float t2 = m/(m+1);
-    float p *= t1*t2;
+    float p = p*t1*t2;
     m += 2;
   }
   return 2*p;
