@@ -6,11 +6,10 @@
 
 float wallis_pi(int n){
  float pi=1;
- float a,b;
+ float a;
   for (int i=1;i<n+1;i++){
-    a = 4*i*i;
-    b = a/(a-1);
-    pi = pi*b;  
+    a = (float)(4*i*i)/((4*i*i)-1);
+    pi = pi*a;  
   }
   float k = 2*pi;
   
@@ -19,12 +18,20 @@ float wallis_pi(int n){
 }
 
 int main(void) {
- int n;
- printf("enter iterations:");
-  scanf("%d",&n);
-  float p;
-  p = wallis_pi(n);
-  printf("%f",p);
-  
-}
+  float pi;
+  for (int i=0; i<5; i++) {
+    pi = wallis_pi(i);
+    if (!(fabs(pi - M_PI) > 0.15)) {
+      printf("Estimate with just %d iterations is %f which is too accurate.\n", i, pi);
+      abort();
+    }
+  }
 
+  for (int i=500; i<3000; i++) {
+    pi = wallis_pi(i);
+    if (!(fabs(pi - M_PI) < 0.01)) {
+      printf("Estimate with even %d iterations is %f which is not accurate enough.\n", i, pi);
+      abort();
+    }
+  }
+}
